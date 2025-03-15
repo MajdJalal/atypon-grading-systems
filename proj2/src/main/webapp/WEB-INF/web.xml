@@ -3,39 +3,4 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
                              http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
-    <absolute-ordering />
-
-    <!-- Servlet Declarations -->
-<!--    <servlet>-->
-<!--        <servlet-name>LoginServlet</servlet-name>-->
-<!--        <servlet-class>com.atypon.controller.LoginServlet</servlet-class>-->
-<!--    </servlet>-->
-<!--    <servlet>-->
-<!--        <servlet-name>LogoutServlet</servlet-name>-->
-<!--        <servlet-class>com.atypon.controller.LogoutServlet</servlet-class>-->
-<!--    </servlet>-->
-<!--    <servlet>-->
-<!--        <servlet-name>GradesServlet</servlet-name>-->
-<!--        <servlet-class>com.atypon.controller.GradesServlet</servlet-class>-->
-<!--    </servlet>-->
-
-<!--    &lt;!&ndash; Servlet Mappings &ndash;&gt;-->
-<!--    <servlet-mapping>-->
-<!--        <servlet-name>LoginServlet</servlet-name>-->
-<!--        <url-pattern>/login</url-pattern>-->
-<!--    </servlet-mapping>-->
-<!--    <servlet-mapping>-->
-<!--        <servlet-name>LogoutServlet</servlet-name>-->
-<!--        <url-pattern>/logout</url-pattern>-->
-<!--    </servlet-mapping>-->
-<!--    <servlet-mapping>-->
-<!--        <servlet-name>GradesServlet</servlet-name>-->
-<!--        <url-pattern>/grades</url-pattern>-->
-<!--    </servlet-mapping>-->
-
-<!--    <welcome-file-list>-->
-<!--        <welcome-file>index.jsp</welcome-file>-->
-<!--    </welcome-file-list>-->
-
-    <!-- Add other servlets similarly -->
 </web-app>

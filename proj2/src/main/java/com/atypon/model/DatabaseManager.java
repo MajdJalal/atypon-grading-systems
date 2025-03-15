@@ -6,6 +6,9 @@ import com.atypon.util.PasswordUtil;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Properties;
 
 public class DatabaseManager {
@@ -162,7 +165,63 @@ public class DatabaseManager {
     }
 
     public String getClassStats() {
-        return "";
+        StringBuilder stats = new StringBuilder("Class Statistics:\n");
+
+        try {
+            //Retrieve all grades from the database
+            String query = "SELECT Grade FROM grades";
+            PreparedStatement stmt = connection.prepareStatement(query);
+            ResultSet rs = stmt.executeQuery();
+
+            //Collect all grades into a list
+            List<Integer> grades = new ArrayList<>();
+            while (rs.next()) {
+                grades.add(rs.getInt("Grade"));
+            }
+
+            if (grades.isEmpty()) {
+                stats.append("No grades found.\n");
+                stats.append("###");
+                return stats.toString();
+            }
+
+            //Calculate statistics
+            // Sort grades for median calculation
+            Collections.sort(grades);
+
+            // Calculate average
+            double sum = 0;
+            for (int grade : grades) {
+                sum += grade;
+            }
+            double average = sum / grades.size();
+
+            // Calculate median
+            double median;
+            int middle = grades.size() / 2;
+            if (grades.size() % 2 == 0) {
+                median = (grades.get(middle - 1) + grades.get(middle)) / 2.0;
+            } else {
+                median = grades.get(middle);
+            }
+
+            // Calculate highest and lowest
+            int highest = Collections.max(grades);
+            int lowest = Collections.min(grades);
+
+            //Format the results
+            stats.append(String.format("Average Grade: %.2f\n", average));
+            stats.append(String.format("Median Grade: %.2f\n", median));
+            stats.append(String.format("Highest Grade: %d\n", highest));
+            stats.append(String.format("Lowest Grade: %d\n", lowest));
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            stats.append("Error retrieving class statistics.\n");
+        }
+
+        stats.append("###");
+        return stats.toString();
     }
 }
 

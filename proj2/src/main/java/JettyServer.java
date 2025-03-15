@@ -1,7 +1,6 @@
 import com.atypon.controller.GradesServlet;
 import com.atypon.controller.LoginServlet;
 import com.atypon.controller.StatsServlet;
-import com.atypon.controller.TestServlet;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.session.SessionHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
