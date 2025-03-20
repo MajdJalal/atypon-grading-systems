@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Courses</title>
+</head>
+<body>
+<h1>Courses</h1>
+<ul>
+    <li th:each="course : ${courses}">
+        <span th:text="${course.courseName}"></span> -
+        <span th:text="${course.credits}"></span> credits
+    </li>
+</ul>
+</body>
+</html>
