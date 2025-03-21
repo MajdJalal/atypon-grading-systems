@@ -8,7 +8,7 @@ import org.eclipse.jetty.webapp.WebAppContext;
 
 public class JettyServer {
     public static void main(String[] args) throws Exception {
-        Server server = new Server(8080);
+        Server server = new Server(8082);
 
         WebAppContext webAppContext = new WebAppContext();
         webAppContext.setContextPath("/");
