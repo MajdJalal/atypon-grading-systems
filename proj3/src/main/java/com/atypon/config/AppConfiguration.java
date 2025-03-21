@@ -32,7 +32,6 @@ import java.util.Properties;
 @EnableJpaRepositories("com.atypon.data.repository")
 public class AppConfiguration implements WebMvcConfigurer {
     // Thymeleaf Configuration
-
     @Bean
     public HandlerMappingIntrospector mvcHandlerMappingIntrospector() {
         return new HandlerMappingIntrospector();
@@ -59,7 +58,6 @@ public class AppConfiguration implements WebMvcConfigurer {
         resolver.setTemplateEngine(templateEngine());
         return resolver;
     }
-    // Additional configuration (e.g., view resolvers) can go here
     @Bean
     public DataSource dataSource() {
         // Example: HikariCP DataSource
@@ -91,20 +89,10 @@ public class AppConfiguration implements WebMvcConfigurer {
         return em;
     }
 
-    // Transaction Manager
     @Bean
     public PlatformTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
         JpaTransactionManager transactionManager = new JpaTransactionManager();
         transactionManager.setEntityManagerFactory(entityManagerFactory);
         return transactionManager;
     }
-
-//    @Bean
-//    public ViewResolver viewResolver() {
-//        InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-//        resolver.setViewClass(JstlView.class);
-//        resolver.setPrefix("/WEB-INF/view/"); // Where JSP files are stored
-//        resolver.setSuffix(".jsp");
-//        return resolver;
-//    }
 }

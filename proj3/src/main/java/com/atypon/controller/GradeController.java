@@ -7,22 +7,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
-@RequestMapping("atypon/student-courses")
+@RequestMapping("/grades")
 public class GradeController {
 
     @Autowired
     private GradeService gradeService;
 
     @GetMapping
-    public String listStudentCourses(Model model) {
-        model.addAttribute("studentCourses", gradeService.getAllStudentCourses());
-        return "student-courses"; // Renders student-courses.html
-    }
-
-    @PostMapping
-    public String addStudentCourse(@ModelAttribute Grade grade) {
-        gradeService.saveStudentCourse(grade);
-        return "redirect:/student-courses"; // Redirects to the list of student-courses
+    public String getGrades(Model model) {
+        final List<Grade> allStudentCourses = gradeService.getAllStudentCourses();
+        model.addAttribute("grades", allStudentCourses);
+        return "grades";
     }
 }

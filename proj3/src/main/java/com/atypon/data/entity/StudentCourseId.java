@@ -7,6 +7,4 @@ import java.io.Serializable;
 public class StudentCourseId implements Serializable {
     private Long studentId;
     private Long courseId;
-
-    // Getters, setters, equals, and hashCode
 }

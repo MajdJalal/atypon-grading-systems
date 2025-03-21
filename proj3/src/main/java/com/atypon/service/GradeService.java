@@ -13,13 +13,9 @@ import java.util.List;
 public class GradeService {
 
     @Autowired
-    private GradeRepository studentCourseRepository;
+    private GradeRepository gradeRepository;
 
     public List<Grade> getAllStudentCourses() {
-        return studentCourseRepository.findAll();
-    }
-
-    public void saveStudentCourse(Grade grade) {
-        studentCourseRepository.save(grade);
+        return gradeRepository.findAll();
     }
 }
